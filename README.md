@@ -32,8 +32,91 @@ $$
 - **w** = Weight (slope of the line)  
 - **b** = Bias (intercept)
 
-You're trying to find the best w and b that make your predictions match the actual values.
+### How Does a Machine “Learn”?
+When we say a model learns, we mean, It tries to find the best line (or curve) that fits the data by minimizing the error between predicted and actual values.
+To do that, it uses tools like:
 
+- One is actual value y = mx+c
+- One is predicted value y bar.
+- Loss Function
+- Cost Function
+
+### Loss Function & Cost Function
+- Measures the Error Per Sample, means what's the difference between actual data and predicted data
+- **Loss function**: Measures the error for a single training example.
+
+$$
+Loss =  \bigl(y_i - \hat{y}_i\bigr)^2
+$$
+
+- **Cost function**: Represents the average loss over the entire training dataset, and is also known as **Mean Squared Error (MSE)**.
+
+$$
+\mathrm{MSE} = \frac{1}{n} \sum_{i=1}^{n} \bigl(y_i - \hat{y}_i\bigr)^2
+$$
+
+**Derivation**
+1. **For a single prediction**: This is just the difference between actual and predicted value.
+  
+$$
+ERROR = y_i - \hat{y}_i
+$$
+
+2. **Square the Error** : We square it so, Negative errors don’t cancel out positive ones.
+
+$$
+SE_i = \bigl(y_i - \hat{y}_i\bigr)^2
+$$
+
+3. **Apply to All Samples** : For 𝑛 data points, compute the squared error for each one and sum them:
+
+$$
+\mathrm{SSE} = \sum_{i=1}^{n} \bigl(y_i - \hat{y}_i\bigr)^2
+$$
+
+4. **Average the Squared Errors** : To get the mean squared error (MSE), divide by the total number of samples 𝑛.
+
+$$
+\mathrm{MSE} = \frac{1}{n} \sum_{i=1}^{n} \bigl(y_i - \hat{y}_i\bigr)^2
+$$
+
+### Gradient descent
+- Now we know how to get the cost function, but our model or prediction will be good only if the cost is minimum, so we need to reduce the value of cost, That’s where **Gradient Descent** comes in.
+- How can we reduce it, by changing **w** and **b** such that, the **error** decreases.
+- This process is repeated many times (called epochs).
+
+$$
+w = w - \alpha \cdot \frac{\partial \text{Cost}}{\partial w}
+$$
+
+$$
+b = b - \alpha \cdot \frac{\partial \text{Cost}}{\partial b}
+$$
+
+**Where:**
+- alpha = Learning rate
+- Partial derivative of the cost function with respect to weight (w).
+- Partial derivative of the cost function with respect to bias (b).
+
+**Derivation**
+
+- Cost function formula we already know.
+
+$$
+J(w, b) = \frac{1}{n} \sum_{i=1}^{n} \bigl(y_i - \hat{y}_i\bigr)^2
+$$
+
+- replace the y bar value.
+
+$$
+J(w, b) = \frac{1}{n} \sum_{i=1}^{n} \left( y_i - (w x_i + b) \right)^2
+$$
+
+- Let’s take derivative of J with respect to 𝑤.
+
+$$
+\frac{\partial J}{\partial w} = \frac{1}{n} \sum_{i=1}^{n} \frac{d}{dw} \left[ \bigl(y_i - (w x_i + b)\bigr)^2 \right]
+$$
 
 
 
