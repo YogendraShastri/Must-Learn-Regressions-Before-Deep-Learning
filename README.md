@@ -151,6 +151,6 @@ Now we understand the overall logic for linear regression. lets move to example,
 
 - Download jupyter notebook : https://jupyter.org/install
 - install sklearn & numpy.
-- notebook attached in repo.
+- notebook attached in repo [View Notebook](linear_regression.ipynb)
 
 
