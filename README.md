@@ -98,7 +98,7 @@ $$
 - Partial derivative of the cost function with respect to weight (w).
 - Partial derivative of the cost function with respect to bias (b).
 
-**Derivation**
+**Partial Derivative**
 
 - Cost function formula we already know.
 
@@ -118,7 +118,39 @@ $$
 \frac{\partial J}{\partial w} = \frac{1}{n} \sum_{i=1}^{n} \frac{d}{dw} \left[ \bigl(y_i - (w x_i + b)\bigr)^2 \right]
 $$
 
+- The simplified derivative of the cost function with respect to \( w \) is:
 
+$$
+\frac{\partial Cost}{\partial w} = \frac{-2}{n} \sum_{i=1}^{n} x_i \left( y_i - (w x_i + b) \right)
+$$
 
+- Similary we can derive for b as well
+
+$$
+\frac{\partial Cost}{\partial b} = \frac{-2}{n} \sum_{i=1}^{n} \left( y_i - (w x_i + b) \right)
+$$
+
+- We subtract the gradient to move toward minimum.
+- Final Gradient Descent Formula, lets replace the derivative value on actual formula.
+
+$$
+w = w + \frac{2\alpha}{n} \sum_{i=1}^{n} x_i \left( y_i - \hat{y}_i \right)
+$$
+
+$$
+b = b + \frac{2\alpha}{n} \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)
+$$
+
+- Now choosing learning rate is a task, learning rate dictates the size of the steps taken in the direction of the negative gradient (or other optimization methods) to adjust the model's parameters (weights and biases).
+- A higher learning rate means larger steps, potentially leading to faster convergence but also the risk of overshooting.
+- A lower learning rate means smaller steps, leading to more stable training but also potentially slower convergence and the possibility of getting stuck in local minima. 
+
+![image](https://github.com/user-attachments/assets/9b4363cf-79a7-4474-b320-61c9c09b6f23)
+
+Now we understand the overall logic for linear regression. lets move to example, we can utilize sklearn library to use the linear regression.
+
+- Download jupyter notebook : https://jupyter.org/install
+- install sklearn & numpy.
+- notebook attached in repo.
 
 
