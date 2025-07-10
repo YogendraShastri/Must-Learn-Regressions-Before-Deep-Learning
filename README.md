@@ -153,4 +153,24 @@ Now we understand the overall logic for linear regression. lets move to example,
 - install sklearn & numpy.
 - notebook attached in repo [View Notebook](linear_regression.ipynb)
 
+## What is Multiple Linear Regression ?
+- It models the relationship between one dependent variable and two or more independent variables.
 
+$$
+\hat{y} = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b
+$$
+
+- Or more compactly using vector notation:
+
+$$
+\hat{y} = \mathbf{w}^\top \mathbf{x} + b
+$$
+
+- Here x1, x2, x3 ... are the features, like when you are predicting the price of the house, you consider many features, like size of the house, bedrooms, age of the house etc..
+-  cost function and gradient decent will be the same, just but they are applied to more features in multiple regression.
+
+### Example :
+- notebook attached in repo [View Notebook](multiple_linear_regression.ipynb)
+
+## What is Logistic Regression?
+- 
