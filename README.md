@@ -173,4 +173,125 @@ $$
 - notebook attached in repo [View Notebook](multiple_linear_regression.ipynb)
 
 ## What is Logistic Regression?
-- 
+- Logistic regression is mainly used for classfication problem.
+- Linear regression predicts numbers (like a price or temperature) and used for continuous data.
+- While logistic regression predicts probabilities for categories (like yes/no or spam/not spam).
+
+### Equation same as linear regression
+
+$$
+z = \mathbf{w}^\top \mathbf{x} + b
+$$
+
+### Where:
+- 𝑥: input vector
+- 𝑤: weight vector
+- 𝑏: bias
+
+you might ask when logistic regression starts with the same linear combination as linear regression, whats the critical difference. you are correct. but linear regression outout is unbounded it can be 1, Negative or any other positive number, which is not suitable for classification problem. You can’t confidently label "Spam or Not Spam" if output can be 7.2.
+To solve this, logistic regression passes the linear output through a sigmoid function. so lets see the sigmoid function. 
+
+### Sigmoid Function
+Sigmoid function's output always falls between 0 and 1 (exclusive), making it suitable for representing probabilities. it will be more clear once we see the equation.
+
+**Equation** :
+
+$$
+\hat{y} = \sigma(\mathbf{w}^\top \mathbf{x} + b) = \frac{1}{1 + e^{-z}}
+$$
+
+Where:
+
+$$
+z = \mathbf{w}^\top \mathbf{x} + b
+$$
+
+so we can see that we are dividing 1 with a value which is greater or equal to one, that means the sigmoid will always falls between 0 to 1. This is now interpretable as a probability.
+
+### Loss function
+
+$$
+\text{Loss}(y_i, \hat{y}_i) = -\left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
+$$
+
+**Where**
+- 𝑦 = actual class (0 or 1)
+- 𝑦 bar = predicted probability from sigmoid
+
+### Cost Function
+
+$$
+J(w, b) = \frac{1}{n} \sum_{i=1}^{n} \text{Loss}(y_i, \hat{y}_i)
+$$
+
+Where:
+
+$$
+\text{Loss}(y_i, \hat{y}_i) = -\left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
+$$
+
+### Derivation 
+
+1. **Use the Sigmoid Function as the Model**
+- The logistic regression model estimates the probability (P, 1-P).
+- For a true label \(y\) (where \(y\) is either 0 or 1) and a predicted probability \(p\) of the positive class (i.e., \(y=1\)), the probability of observing the outcome \(y\) can be expressed as:
+    - If \(y=1\), the probability is \(p\).
+    - If \(y=0\), the probability is \((1-p)\).
+- These two cases can be combined into a single expression using the **probability mass function (PMF)** of the **Bernoulli distribution**:
+
+$$
+P(Y = y) = p^{y}(1 - p)^{(1 - y)}
+$$
+
+2. **Define the Likelihood for the Dataset**
+
+Given a dataset of \( n \) independent samples, where each sample \( i \) has:
+- True label: \( yi \in \{0, 1\} \)
+- A predicted probability 𝑝𝑖, which comes from the sigmoid function.
+
+The **likelihood** of the entire dataset is:
+
+$$
+L(w, b) = \prod_{i=1}^{n} p_i^{y_i} (1 - p_i)^{1 - y_i}
+$$
+
+To simplify optimization, we take the logarithm of the likelihood:
+
+3. **Log-Likelihood Function**
+- The log-likelihood function for a single observation \(i\) becomes:
+
+$$
+\log \big( P(Y = y_i) \big) = y_i \log(p_i) + (1 - y_i) \log(1 - p_i)
+$$
+
+- For the entire dataset:
+  
+$$
+\log L(w, b) = \sum_{i=1}^{n} \left[ y_i \log(p_i) + (1 - y_i) \log(1 - p_i) \right]
+$$
+
+4. **Negative log-likelihood as a loss function**
+- To convert this to a loss, we use Negative Log-Likelihood:
+
+$$
+\text{Loss} = -\log L(w, b)
+$$
+
+- So the cost function (for all samples) becomes:
+
+$$
+J(w, b) = - \sum_{i=1}^{n} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
+$$
+
+5. **Average to Get Cost Function**
+
+$$
+J(w, b) = -\frac{1}{n} \sum_{i=1}^{n} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
+$$
+
+Now we understand the overall logic for logistic regression. lets move to example, we can utilize sklearn library to use the logistic regression.
+
+- notebook attached in repo [View Notebook](logistic_regression.ipynb)
+
+
+
