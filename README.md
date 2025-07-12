@@ -293,5 +293,29 @@ Now we understand the overall logic for logistic regression. lets move to exampl
 
 - notebook attached in repo [View Notebook](Logistic_regression_tut.ipynb)
 
+## What Is Polynomial Regression?
+- **Polynomial regression** is a type of regression analysis where the relationship between the independent variable (x) and the dependent variable (y) is modeled as an nth degree polynomial.
+- Unlike **linear regression**, which fits a straight line, **polynomial regression** can fit curved lines, making it better suited for modeling **non-linear patterns** in data.
+
+  <img width="734" height="482" alt="image" src="https://github.com/user-attachments/assets/3e751124-a9aa-4bab-b0e8-0f623b1ce94a" />
+
+### Equation:
+
+$$
+y = w_0 + w_1 x + w_2 x^2 + w_3 x^3 + \cdots + w_d x^d
+$$
+
+**Where**
+- y = predicted value
+- x = input feature
+- w0 = bias term
+- d = Degree of the polynomial
+- w1,w2..wn =  Weights for each power of x
+
+### Risk :
+**Overfitting** : A potential risk with polynomial regression is overfitting, where the model fits the training data too closely, including noise, and performs poorly on new, unseen data.
+
+
+
 
 
