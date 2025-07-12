@@ -291,7 +291,7 @@ $$
 
 Now we understand the overall logic for logistic regression. lets move to example, we can utilize sklearn library to use the logistic regression.
 
-- notebook attached in repo [View Notebook](logistic_regression.ipynb)
+- notebook attached in repo [View Notebook](Logistic_regression_tut.ipynb)
 
 
 
