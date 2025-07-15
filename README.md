@@ -327,8 +327,81 @@ sklearn R-squared can be used to evaluate the result.
 
 
 ## Bayesian Regression
-- bayes 
+- Bayes’ Theorem finds the probability of an event occurring given the probability of another event that has already occurred.
+- Bayes’ theorem is stated mathematically as the following equation:
 
+$$
+P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}
+$$
+
+**Where:**
+- \( P(A \ B) \) = Posterior probability (probability of event \( A \) given that \( B \) has occurred)  
+- \( P(B \ A) \) = Likelihood (probability of event \( B \) given that \( A \) is true)  
+- \( P(A) \) = Prior probability of event \( A \)  
+- \( P(B) \) = Marginal probability of event \( B \)
+
+### How formula Derived ?
+- So in probability there are two major events : 
+1. Independent Events
+2. Dependent Events
+
+**Independent Evetns** : In dependent events are those events which do not effect the other event, like if you role a dice, no matter in which order you role it, the probabiliy of coming a number (1,2,3,4,5 or 6) is always 1/6. these events are independent of each other.
+
+**Dependent Events** : Vise versa, dependent events are those events which affect the other. for example, you have a box with 4 red balls and 3 green balls, so probability of taking red balls will be 4/7, and green will be 3/7. but once you drawn the red ball once the probability of taking green ball will be 3/6 i.e. 1/2. You see now the event is affected.
+
+#### Now lets see the formula **Steps** ::
+- We will consider probability to take red ball as P(A), taking for Green ball is P(B).
+- So probabiliy to take green ball, after drawn red ball. i.e probability of Event B when Event A is already occured will be.
+  P(B/A).
+
+#### Step 1: Definition of Conditional Probability
+
+From the definition of conditional probability:
+
+$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)} \quad \text{(1)}
+$$
+
+And similarly:
+
+$$
+P(B \mid A) = \frac{P(A \cap B)}{P(A)} \quad \text{(2)}
+$$
+
+---
+
+#### Step 2: Express \( P(A \ B) \) from Equation (2)
+
+Rearranging Equation (2):
+
+$$
+P(A \cap B) = P(B \mid A) \cdot P(A)
+$$
+
+---
+
+#### Step 3: Substitute into Equation (1)
+
+Now plug this into Equation (1):
+
+$$
+P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}
+$$
+
+---
+
+###  Bayes’ Theorem:
+
+$$
+\boxed{P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}}
+$$
+
+#### Types of Naive Bayes Classifier-
+1. Multinomial Naive Bayes
+2. Bernoulli Naive Bayes
+3. Gaussian Naive Bayes
+
+  
 
 
 
