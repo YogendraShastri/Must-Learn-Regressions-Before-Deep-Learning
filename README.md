@@ -315,6 +315,21 @@ $$
 ### Risk :
 **Overfitting** : A potential risk with polynomial regression is overfitting, where the model fits the training data too closely, including noise, and performs poorly on new, unseen data.
 
+### Loss Function and Cost Function
+Loss Function: Similar to Linear Regression, Polynomial Regression also uses Mean Squared Error (MSE) as the loss function.
+
+### Validation Metrics
+R-squared is generally used to evaluate the performance of the polynomial regression. R-squared value ranges from 0 to 1, where 0 means no relationship and 1 means 100% matched relationship.
+sklearn R-squared can be used to evaluate the result.
+
+**Example**:
+- notebook attached in repo [View Notebook](polynomial_regression_tut.ipynb)
+
+
+## Bayesian Regression
+- bayes 
+
+
 
 
 
